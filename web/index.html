@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Synthetic Identity Cluster Detector</title>
+  <meta name="description" content="Links loan applications that share a phone, device or bank account, scores each group and explains every decision. Synthetic data only.">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="top">
+    <div>
+      <h1>Synthetic Identity Cluster Detector</h1>
+      <p class="sub">Links loan applications that share a phone, device or bank account, scores each group, and explains every decision.</p>
+    </div>
+    <p class="banner">Synthetic data only &middot; Independent project, not affiliated with Deepvue</p>
+  </header>
+
+  <section id="kpis" class="kpis" aria-label="Summary"><div class="muted">Loading&hellip;</div></section>
+
+  <nav class="tabs" role="tablist" aria-label="Sections">
+    <button class="tab active" role="tab" aria-selected="true" data-tab="clusters">Clusters</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="try">Try an application</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="eval">Evaluation</button>
+  </nav>
+
+  <main>
+    <section id="tab-clusters" class="tabpanel">
+      <div class="split">
+        <div class="card">
+          <h2>Clusters by risk</h2>
+          <div id="cluster-list" class="cluster-list"></div>
+          <h3>Ignored as too widely shared</h3>
+          <div id="hub-list" class="hub-list"></div>
+        </div>
+        <div class="card" id="detail"></div>
+      </div>
+    </section>
+
+    <section id="tab-try" class="tabpanel hidden">
+      <div class="card">
+        <h2>Try an application</h2>
+        <p class="muted">Dry run: the application is scored against the dataset and never stored. Pick an example or type your own.</p>
+        <div id="examples" class="examples"></div>
+        <div class="form">
+          <label>Name<input id="f-name" autocomplete="off"></label>
+          <label>Phone<input id="f-phone" autocomplete="off"></label>
+          <label>Device ID<input id="f-device_id" autocomplete="off"></label>
+          <label>Bank account<input id="f-bank_account" autocomplete="off"></label>
+          <label>IP address (optional)<input id="f-ip" autocomplete="off"></label>
+          <label>Loan amount (optional)<input id="f-loan_amount" inputmode="numeric" autocomplete="off"></label>
+          <label>Submitted at (optional, ISO)<input id="f-timestamp" placeholder="2026-09-20T14:30:00" autocomplete="off"></label>
+          <div class="form-actions"><button id="score-btn" class="primary">Score application</button></div>
+        </div>
+      </div>
+      <div id="try-result"></div>
+    </section>
+
+    <section id="tab-eval" class="tabpanel hidden">
+      <div id="eval"></div>
+    </section>
+  </main>
+
+  <footer>
+    Rule-based and explainable by design: the system recommends, a human confirms.
+    All data is randomly generated. <a href="/docs">API docs</a>
+  </footer>
+  <script src="/static/app.js"></script>
+</body>
+</html>
